@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -rf ./public/*
+rm resources.json
+echo "[]" >> resources.json

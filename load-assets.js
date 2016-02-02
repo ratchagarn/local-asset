@@ -6,7 +6,11 @@ var mkdirp = require('mkdirp'),
     baseAssetsPath = './public/',
     _PORT = process.env.PORT || 6969;
 
-var resources = JSON.parse(fs.readFileSync('./resources.json'));
+var resources = JSON.parse(fs.readFileSync('./resources.json')),
+    totalResources = resources.length;
+    count = 0;
+
+console.log('[LOG] =>', 'Start Download ' + totalResources + ' file(s)');
 
 /**
  * Create assets dir
@@ -26,11 +30,10 @@ _.forEach(resources, function(url) {
   var downloadDest = destination + '/' + filename;
   download(url, downloadDest, function(err) {
     if (!err) {
-      // console.log('Download file ==> ' + url + ' success !');
-      console.log('[You can access] http://localhost:' + _PORT + '/' + downloadDest.replace(baseAssetsPath, ''));
+      console.log('Download file(s) successed (' + filename + ') ' + (++count) + '/' + totalResources);
     }
     else {
-      console.log('[ERROR]', err);
+      console.log('[ERROR] ==>', "Can't download file please check url (" + url + ") or internet connection.");
     }
   });
 });
@@ -53,9 +56,9 @@ function download(url, dest, cb) {
       });
     })
     .on('error', function(err) {
-      fs.unlink(dest);
+      // fs.unlink(dest);
       if (cb) {
-        cb(err.message);
+        cb(err);
       }
     });
 };
