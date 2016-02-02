@@ -1,4 +1,8 @@
-# How to use
+# Local assets
+Build for download all online resources to local machince and create server for access it. (Build with `express` version 4.11.X and `NodeJS` version 0.10.X)
+
+
+## How to use
 - Clone this repo to your machince.
 - `npm install`
 
