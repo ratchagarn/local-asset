@@ -15,8 +15,8 @@ Build for download all online resources to local machince and create server for 
 ## How to use
 - Add all resoueces that you want to download for use in this server in file `resources.json` in JSON array.
 - Then start server with command `./bin/www` in your terminal.
-- Then use can access all resources that your download from `http://localhost:6969/path/is/you/want/to/use`.
-- *** NOTE - you can change port with `PORT=port_is_you_want_to_use ./bin/www`
+- Then you can access all resources from `http://localhost:6969/path/is/you/want/to/use`.
+- *** NOTE - you can change port with `PORT=port_is_you_want_to_use ./bin/www` (Default port is `6969`)
 
 
 ## Example resources.json
@@ -29,5 +29,5 @@ Build for download all online resources to local machince and create server for 
 ```
 
 
-## Hot Fixed issue
+## Hot Fixed problem
 - run command `./bin/restore` in your terminal and then start server (OSX)
