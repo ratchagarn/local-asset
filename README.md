@@ -15,5 +15,15 @@
 - *** NOTE - you can change port with `PORT=port_is_you_want_to_use ./bin/www`
 
 
+## Example resources.json
+```javascript
+[
+  "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.2/angular2.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.15/riot.min.js"
+]
+```
+
+
 ## Hot Fixed issue
 - run command `./bin/restore` in your terminal and then start server

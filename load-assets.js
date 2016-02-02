@@ -10,7 +10,14 @@ var resources = JSON.parse(fs.readFileSync('./resources.json')),
     totalResources = resources.length;
     count = 0;
 
-console.log('[LOG] =>', 'Start Download ' + totalResources + ' file(s)');
+if (totalResources > 0) {
+  console.log('[LOG] =>', 'Start Download ' + totalResources + ' file(s)');
+}
+else {
+  console.log('[LOG] =>', 'Download file not found.');
+  console.log('[LOG] =>', 'please add url for downlaod resources in `resources.json`.');
+}
+
 
 /**
  * Create assets dir
@@ -27,6 +34,8 @@ _.forEach(resources, function(url) {
   // create destination directory
   mkdirp.sync(destination);
 
+
+  // download all file asynchronous
   var downloadDest = destination + '/' + filename;
   download(url, downloadDest, function(err) {
     if (!err) {
