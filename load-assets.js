@@ -3,7 +3,8 @@ var mkdirp = require('mkdirp'),
     _ = require('lodash'),
     purl = require('purl'),
     http = require('http'),
-    baseAssetsPath = './public/';
+    baseAssetsPath = './public/',
+    _PORT = process.env.PORT || 6969;
 
 var resources = JSON.parse(fs.readFileSync('./resources.json'));
 
@@ -26,7 +27,7 @@ _.forEach(resources, function(url) {
   download(url, downloadDest, function(err) {
     if (!err) {
       // console.log('Download file ==> ' + url + ' success !');
-      console.log('[You can access] http://localhost:' + process.env.PORT + '/' + downloadDest.replace(baseAssetsPath, ''));
+      console.log('[You can access] http://localhost:' + _PORT + '/' + downloadDest.replace(baseAssetsPath, ''));
     }
     else {
       console.log('[ERROR]', err);

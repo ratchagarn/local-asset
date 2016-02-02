@@ -1,0 +1,65 @@
+.h1_home, .h3_seo, #content > h1, #content > h3 { font-size: 0; height: 0; line-height: 0; }
+
+#content > h1, #content > h3 { margin: 0; }
+
+.h1_home { margin: 0; }
+
+.cate-list li a > h2 { border-bottom: 1px solid #D1D1D1; margin: 0px; height: 60px; line-height: 60px; display: block; color: #000; font-size: 21px; font-weight: 100; }
+
+.product-price { /*max-height: 52px;*/ }
+
+.style-type { margin-top: 13px; }
+
+.special-price .col-xs-5 { color: #E83A27; }
+
+#everyday-wow-logo { margin-top: -33px; }
+
+.product_title { width: auto; }
+
+.swiper-slide .time-remaining { margin-top: 3px; }
+
+.view-default h2.product-name, .view-default .product-name h2, .view-default .truecard h3 { font-size: 18px; font-weight: normal; }
+
+.view-default h2.product-name { margin-bottom: 0; }
+
+.view-default .truecard h3 { margin: 3px 0; }
+
+.view-default .price span:first-child { color: #e83a27; font-size: 20px; font-weight: bold; margin-top: 10px; margin-bottom: 0; text-decoration: none; display: block; }
+
+.caption h3 { margin: 0; font-size: 20px; font-weight: normal; display: inline; }
+
+.tomorrow-deals h2 { font-size: 29px; margin: 9px 0 16px 0; color: #767676; font-weight: normal; }
+
+.view-default .product-name h2 { -ms-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; }
+
+.superdeal-home-thumb .price-superdeal p, .col-medium .product-price p, .col-big .product-price p { margin-top: 0; margin-bottom: -15px; font-family: 'TrueMedium'; font-size: 42px; color: #e83a27; line-height: 1.1; -ms-text-overflow: clip; text-overflow: clip; }
+
+.superdeal-home-thumb .price-superdeal p { text-align: left; }
+
+.col-medium .product-price p, .col-big .product-price p { text-align: left; }
+
+.view-default { height: 430px; }
+
+@media screen and (max-width: 320px) { .swiper-slide .time-remaining { margin-top: 4px; }
+  .view-default { height: 290px; }
+  .cate-list li a > h2 { font-size: 16px; }
+  .view-default h2.product-name, .view-default .product-name h2 { font-size: 14px; }
+  .view-default .truecard h3 { font-size: 10px; }
+  .caption h3 { font-size: 12px; }
+  .tomorrow-deals h2 { font-size: 20px; margin: 6px 0 13px 0; color: #767676; font-weight: normal; }
+  .view-default .price span:first-child { font-size: 13px; }
+  .superdeal-home-thumb .price-superdeal p { font-size: 30px; margin-top: -7px; }
+  .swiper-related-container .swiper-slide .col-medium p { font-size: 24px; margin: -5px 0; }
+  .swiper-slide .col-big .product-price p { font-size: 26px; margin-bottom: -10px; text-align: right; margin-right: 0; } }
+@media screen and (max-width: 480px) and (min-width: 321px) { .swiper-slide .time-remaining { margin-top: 4px; }
+  .cate-list li a > h2 { font-size: 16px; }
+  .caption h3 { font-size: 16px; }
+  .view-default { height: 310px !important; }
+  .view-default .truecard h3 { font-size: 10px; }
+  .tomorrow-deals h2 { font-size: 20px; margin: 7px 0 15px 0; color: #767676; font-weight: normal; }
+  .view-default .price span:first-child { font-size: 14px; }
+  .col-medium { height: 280px; }
+  /*.superdeal-home-thumb { height: 300px; }*/
+  .superdeal-home-thumb .price-superdeal p, .col-medium .product-price p { font-size: 1.2em; }
+  .swiper-slide .col-big .product-price p { font-size: 28px; margin-bottom: -10px; text-align: right; margin-right: 10px; -ms-text-overflow: clip; text-overflow: clip; padding-right: 10px; } }
+

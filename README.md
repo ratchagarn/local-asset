@@ -1,6 +1,12 @@
-# START SERVER
+# How to use
+- Clone this repo to your machince.
+- `npm install`
+
+
+## START SERVER
 - `./bin/www`
 - `DEBUG=local-assets:* ./bin/www` (with debug mode)
+
 
 ## How to use
 - Add all resoueces that you want to download for use in this server in file `resources.json` in JSON array.
