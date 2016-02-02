@@ -26,4 +26,4 @@
 
 
 ## Hot Fixed issue
-- run command `./bin/restore` in your terminal and then start server
+- run command `./bin/restore` in your terminal and then start server (OSX)
