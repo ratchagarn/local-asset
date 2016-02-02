@@ -1,6 +1,6 @@
 {
-  "name": "xxx",
-  "version": "0.0.0",
+  "name": "local-assets",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -11,7 +11,18 @@
     "debug": "~2.1.1",
     "express": "~4.11.1",
     "jade": "~1.9.1",
+    "lodash": "^4.2.0",
+    "mkdirp": "^0.5.1",
     "morgan": "~1.5.1",
+    "purl": "^1.0.4",
     "serve-favicon": "~2.2.0"
-  }
+  },
+  "description": "`DEBUG=local-assets:* ./bin/www`",
+  "main": "app.js",
+  "keywords": [
+    "local",
+    "assets"
+  ],
+  "author": "Ratchagarn Naewbuntad",
+  "license": "MIT"
 }

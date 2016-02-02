@@ -2,4 +2,23 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+
+  h3 You can access all this url
+  ul
+    - each url in resources
+      li
+        a(href=url target="_blank")= url
+
+
+  style.
+    body {
+      font-family: Arial, Verdana, Tahoma;
+    }
+    a {
+      color: blue;
+      line-height: 1.5em;
+    }
+    a:hover {
+      color: red;
+      text-decoration: none;
+    }

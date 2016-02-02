@@ -1,0 +1,66 @@
+.ajaxloading-widget-background{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #FBFDFF;
+    z-index: 10001;
+    text-align: center;
+    display: none;
+
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    /* IE 5-7 */
+    filter: alpha(opacity=70);
+    /* Netscape */
+    -moz-opacity: 0.7;
+    /* Safari 1.x */
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+}
+
+.ajaxloading-widget-icon-container{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -78px;
+    z-index: 10002;
+    display: none;
+}
+.ajaxloading-widget-icon-container img{
+    /*width: 36px;
+    height: 36px;*/
+}
+
+
+@-webkit-keyframes loading-ajax {
+    100% {
+        background-position: -3120px 0;
+    }
+}
+@-moz-keyframes loading-ajax {
+    100% {
+        background-position: -3120px 0;
+    }
+}
+@-o-keyframes loading-ajax {
+    100% {
+        background-position: -3120px 0;
+    }
+}
+@keyframes loading-ajax {
+    100% {
+        background-position: -3120px 0;
+    }
+}
+.ng-loading-icn {
+    width: 104px;
+    height: 104px;
+    background: url("/assets/widget/images/itm-loading.png") left center;
+    -webkit-animation: loading-ajax 2.5s steps(30) infinite;
+    -moz-animation: loading-ajax 2.5s steps(30) infinite;
+    -o-animation: loading-ajax 2.5s steps(30) infinite;
+    animation: loading-ajax 2.5s steps(30) infinite;
+}
