@@ -58,7 +58,7 @@ function generate(req, res, next) {
 
       // fetch all image
       $('img').each(function(i, el) {
-        var url = $(el).attr('href');
+        var url = $(el).attr('src');
         if (url && isAbsoluteURL(url)) {
           output.push(url);
         }
@@ -66,7 +66,7 @@ function generate(req, res, next) {
 
       // fetch all scripts
       $('script').each(function(i, el) {
-        var url = $(el).attr('href');
+        var url = $(el).attr('src');
         if (url && isAbsoluteURL(url)) {
           output.push(url);
         }
