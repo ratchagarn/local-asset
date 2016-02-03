@@ -40,6 +40,10 @@ _.forEach(resources, function(url) {
   download(url, downloadDest, function(err) {
     if (!err) {
       console.log('Download file(s) successed (' + filename + ') ' + (++count) + '/' + totalResources);
+      if (count === totalResources) {
+        console.log('All download file ready for access.');
+        console.log('Go to http://localhost:' + _PORT + ' for see all available url.');
+      }
     }
     else {
       console.log('[ERROR] ==>', "Can't download file please check url (" + url + ") or internet connection.");
