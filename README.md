@@ -29,5 +29,10 @@ Build for download all online resources to local machince and create server for 
 ```
 
 
+## Fetch all assets url from url (Support only link[rel="stylesheet"], script, img tags)
+- example usage `http://localhost:6969/generate?url=http://localhost:9000`
+- It will fetch all assets from url and response back with JSON.
+
+
 ## Hot Fixed problem
 - run command `./bin/restore` in your terminal and then start server (OSX)
