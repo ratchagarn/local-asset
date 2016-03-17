@@ -11,6 +11,10 @@ var cheerio = require('cheerio');
 
 /* GET home page. */
 router.get('/', homePage);
+router.get('/download', function(req, res) {
+  require('../load-assets.js');
+  res.send('Please wait while downloading files. (See progress in your TERMINAL)');
+});
 router.get('/generate', generate);
 
 
@@ -40,8 +44,13 @@ function homePage(req, res, next) {
  */
 
 function generate(req, res, next) {
-  var baseURL = req.query.url;
-  request(baseURL, function (error, response, html) {
+  var targetURL = req.query.url,
+      baseURL = targetURL;
+  if (req.query.baseurl != null) {
+    baseURL = req.query.baseurl;
+  }
+
+  request(targetURL, function (error, response, html) {
 
     if (!error && response.statusCode == 200) {
 
@@ -51,28 +60,43 @@ function generate(req, res, next) {
       // fetch all css links
       $('link[rel="stylesheet"]').each(function(i, el) {
         var url = $(el).attr('href');
-        if (url && isAbsoluteURL(url)) {
+        if (isAbsoluteURL(url)) {
           output.push(url);
+        }
+        else if (url) {
+          output.push(baseURL + url);
         }
       });
 
       // fetch all image
       $('img').each(function(i, el) {
         var url = $(el).attr('src');
-        if (url && isAbsoluteURL(url)) {
+        if (isAbsoluteURL(url)) {
           output.push(url);
+        }
+        else if (url) {
+          output.push(baseURL + url);
         }
       });
 
       // fetch all scripts
       $('script').each(function(i, el) {
         var url = $(el).attr('src');
-        if (url && isAbsoluteURL(url)) {
+        if (isAbsoluteURL(url)) {
           output.push(url);
+        }
+        else if (url) {
+          output.push(baseURL + url);
         }
       });
 
+      for (var i = 0, len = output.length; i < len; i++) {
+        if (/^\/\//.test(output[i])) {
+          output[i] = output[i].replace(/\/\//, 'http://');
+        }
+      }
 
+      output = output.join('|').replace(/https:\/\//g, 'http://').split('|');
       res.json(output);
 
     }
@@ -90,7 +114,7 @@ function generate(req, res, next) {
  */
 
 function isAbsoluteURL(url) {
-  return /^(http:\/\/|https:\/\/)/.test(url);
+  return /^(http:\/\/|https:\/\/|\/\/)/.test(url);
 }
 
 module.exports = router;

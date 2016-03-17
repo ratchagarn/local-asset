@@ -24,6 +24,8 @@ else {
  * ------------------------------------------------------------
  */
 
+var downloadAssets = [];
+
 _.forEach(resources, function(url) {
 
     var pathFragments = purl(url).pathname.replace('/', '').split('/'),
@@ -34,22 +36,51 @@ _.forEach(resources, function(url) {
   // create destination directory
   mkdirp.sync(destination);
 
+  var downloadDest = destination + '/' + filename;
+  downloadAssets.push({
+    filename: filename,
+    url: url,
+    dest: downloadDest
+  });
 
   // download all file asynchronous
-  var downloadDest = destination + '/' + filename;
-  download(url, downloadDest, function(err) {
-    if (!err) {
-      console.log('Download file(s) successed (' + filename + ') ' + (++count) + '/' + totalResources);
-      if (count === totalResources) {
-        console.log('All download file ready for access.');
-        console.log('Go to http://localhost:' + _PORT + ' for see all available url.');
-      }
-    }
-    else {
-      console.log('[ERROR] ==>', "Can't download file please check url (" + url + ") or internet connection.");
-    }
-  });
+  // var downloadDest = destination + '/' + filename;
+  // download(url, downloadDest, function(err) {
+  //   if (!err) {
+  //     console.log('Download file(s) successed (' + filename + ') ' + (++count) + '/' + totalResources);
+  //     if (count === totalResources) {
+  //       console.log('All download file ready for access.');
+  //       console.log('Go to http://localhost:' + _PORT + ' for see all available url.');
+  //     }
+  //   }
+  //   else {
+  //     console.log('[ERROR] ==>', "Can't download file please check url (" + url + ") or internet connection.");
+  //   }
+  // });
 });
+
+
+_download(downloadAssets);
+
+
+function _download(assetData) {
+  var data = assetData.shift();
+  if (data) {
+    download(data.url, data.dest, function(err) {
+      if (!err) {
+        console.log('Download file(s) successed (' + data.filename + ') ' + (++count) + '/' + totalResources);
+        if (count === totalResources) {
+          console.log('All download file ready for access.');
+          console.log('Go to http://localhost:' + _PORT + ' for see all available url.');
+        }
+      }
+      else {
+        console.log('[ERROR] ==>', "Can't download file please check url (" + url + ") or internet connection.");
+      }
+      _download(assetData);
+    });
+  }
+}
 
 
 /**
